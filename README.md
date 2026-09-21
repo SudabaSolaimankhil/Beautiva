@@ -14,7 +14,7 @@ This is a **group project** created to practice collaborative development with *
 
 ## 🌐 Live Demo
 
-[View Live Website](https://your-username.github.io/Beautiva/)
+[View Live Website](https://sudabasolaimankhil.github.io/Beautiva/)
 
 ## 🔀 Git Workflow
 
