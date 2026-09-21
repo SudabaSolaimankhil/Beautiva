@@ -15,10 +15,69 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
     />
 
+    <link rel="stylesheet" href="style.css" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
   </head>
   <body>
-    <section class="showcase-section">
+   
+    <nav class="navbar navbar-expand-lg beautiva-navbar">
+      <div class="container">
+        <!-- Brand -->
+        <a class="beautiva-brand" href="#">
+          <i class="bi bi-flower1"></i>
+          Beautiva
+        </a>
+
+        <!-- Mobile Toggle -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#beautivaNavbar"
+          aria-controls="beautivaNavbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="bi bi-list fs-2"></i>
+        </button>
+
+        <!-- Navigation -->
+        <div class="collapse navbar-collapse" id="beautivaNavbar">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Home</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link shop-btn" href="#"> Shop </a>
+            </li>
+          </ul>
+
+          <!-- Icons -->
+          <div class="d-flex align-items-center">
+            <a href="#" class="nav-icon" aria-label="Search">
+              <i class="bi bi-search"></i>
+            </a>
+
+            <a href="#" class="nav-icon" aria-label="Shopping bag">
+              <i class="bi bi-bag"></i>
+            </a>
+
+            <a href="#" class="nav-icon" aria-label="Account">
+              <i class="bi bi-person"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    
+    
+<!--     naeba start -->
+     <section class="showcase-section">
 
     <div class="section-header">
         <span>Discover More</span>
@@ -105,5 +164,6 @@
     </div>
 
 </section>
+<!--     naeba end -->
   </body>
 </html>
