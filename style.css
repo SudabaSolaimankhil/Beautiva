@@ -1,0 +1,331 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #fffdf9;
+  color: #55504e;
+  font-family: Arial, sans-serif;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  width: 100%;
+  min-height: 330px;
+
+  display: grid;
+  grid-template-columns: 38% 34% 28%;
+
+  background: #d8d3ce;
+  overflow: hidden;
+}
+
+
+/* Left image */
+
+.hero-image {
+  height: 330px;
+  overflow: hidden;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+}
+
+
+/* Center content */
+
+.hero-content {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  padding: 30px;
+
+  background: #cfcac5;
+}
+
+.hero-content h1 {
+  color: white;
+
+  font-family: "Playfair Display", serif;
+  font-size: 29px;
+  font-weight: 400;
+
+  white-space: nowrap;
+  margin-bottom: 10px;
+}
+
+.hero-content p {
+  color: white;
+  font-size: 9px;
+  line-height: 1.5;
+
+  margin-bottom: 14px;
+}
+
+.shop-btn {
+  display: inline-block;
+
+  padding: 6px 17px;
+
+  border: 1px solid rgba(255,255,255,.7);
+
+  color: white;
+  text-decoration: none;
+
+  font-size: 9px;
+
+  transition: .3s;
+}
+
+.shop-btn:hover {
+  background: white;
+  color: #555;
+}
+
+
+/* Products */
+
+.products {
+  height: 330px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 15px;
+
+  background: #c9c4bf;
+}
+
+.product {
+  width: 27%;
+}
+
+.product img {
+  width: 100%;
+  height: auto;
+
+  display: block;
+}
+
+
+/* =========================
+   BLOG
+========================= */
+
+.blog {
+  max-width: 1080px;
+
+  margin: 0 auto;
+  padding: 55px 55px 70px;
+}
+
+.blog > h2 {
+  margin-bottom: 25px;
+
+  color: #a64d50;
+
+  font-family: "Playfair Display", serif;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+
+/* Blog grid */
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 50px;
+}
+
+
+/* Blog card */
+
+.blog-card {
+  display: grid;
+  grid-template-columns: 48% 52%;
+
+  min-height: 145px;
+
+  align-items: start;
+}
+
+
+/* Image */
+
+.blog-image {
+  width: 100%;
+  height: 145px;
+
+  overflow: hidden;
+}
+
+.blog-image img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+
+/* Text */
+
+.blog-info {
+  padding: 3px 0 0 18px;
+}
+
+.date {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #c78c89;
+
+  font-size: 8px;
+}
+
+.blog-info h3 {
+  color: #a64d50;
+
+  font-family: "Playfair Display", serif;
+  font-size: 13px;
+  line-height: 1.4;
+  font-weight: 400;
+
+  margin-bottom: 22px;
+}
+
+.read-more {
+  display: inline-block;
+
+  padding: 5px 12px;
+
+  border: 1px solid #d7b4b1;
+
+  color: #a65c5c;
+
+  font-size: 8px;
+  text-decoration: none;
+
+  transition: .3s;
+}
+
+.read-more:hover {
+  background: #a65c5c;
+  color: white;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 800px) {
+
+  .hero {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero-image {
+    height: 280px;
+  }
+
+  .hero-content {
+    height: 280px;
+  }
+
+  .products {
+    grid-column: 1 / -1;
+    height: 180px;
+  }
+
+  .product {
+    width: 18%;
+  }
+
+  .blog {
+    padding: 40px 30px;
+  }
+
+  .blog-grid {
+    gap: 30px;
+  }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-image {
+    height: 220px;
+  }
+
+  .hero-content {
+    height: 190px;
+  }
+
+  .hero-content h1 {
+    font-size: 23px;
+    white-space: normal;
+  }
+
+  .products {
+    height: 160px;
+  }
+
+  .product {
+    width: 20%;
+  }
+
+
+  .blog {
+    padding: 35px 20px 50px;
+  }
+
+  .blog > h2 {
+    font-size: 21px;
+  }
+
+  .blog-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .blog-card {
+    grid-template-columns: 45% 55%;
+  }
+
+  .blog-image {
+    height: 140px;
+  }
+
+}
