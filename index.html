@@ -1,151 +1,430 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Skincare Formula</title>
 
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-    />
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
-    />
+  <style>
+    :root {
+      --cream: #f8f3ec;
+      --warm-white: #fffdfa;
+      --rose: #b9787b;
+      --rose-dark: #9d5e63;
+      --brown: #624b43;
+      --muted: #9b8a80;
+      --line: #e5d7ce;
+    }
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-  </head>
-  <body>
-    <section class="">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 text-center">
-            <h1>this is butea</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam distinctio, dolorum dolore</p>
-            <button class="btn btnoutline btn-info">read more</button>
-          </div>
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--warm-white);
+      color: var(--brown);
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .topbar {
+      background: var(--cream);
+      border-bottom: 1px solid rgba(98,75,67,.08);
+      min-height: 34px;
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: #806d64;
+    }
+
+    .navbar {
+      background: var(--warm-white);
+      min-height: 82px;
+    }
+
+    .brand {
+      color: var(--rose-dark);
+      font-size: 25px;
+      letter-spacing: .04em;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav-link {
+      color: var(--brown) !important;
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin: 0 .35rem;
+    }
+
+    .nav-link:hover { color: var(--rose-dark) !important; }
+
+    .nav-icon {
+      color: var(--brown);
+      font-size: 18px;
+      margin-left: 13px;
+      text-decoration: none;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 405px;
+      overflow: hidden;
+      background: #d9d1ca;
+    }
+
+    .hero-photo {
+      position: absolute;
+      inset: 0 50% 0 0;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.08), rgba(0,0,0,.02)),
+        url("https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?auto=format&fit=crop&w=1200&q=85")
+        center/cover no-repeat;
+    }
+
+    .hero-right {
+      position: absolute;
+      inset: 0 0 0 50%;
+      background: #d7d0c9;
+      overflow: hidden;
+    }
+
+    .hero-right::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=1200&q=85")
+        center/cover no-repeat;
+      opacity: .36;
+      mix-blend-mode: multiply;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      min-height: 405px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .hero-copy {
+      width: min(510px, 90%);
+      color: #fff;
+      text-shadow: 0 1px 2px rgba(0,0,0,.16);
+      transform: translateY(-2px);
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(36px, 5vw, 58px);
+      font-weight: 400;
+      line-height: .98;
+      margin: 0 0 13px;
+    }
+
+    .hero-copy p {
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      line-height: 1.7;
+      letter-spacing: .08em;
+      margin: 0 auto 20px;
+      max-width: 330px;
+    }
+
+    .btn-soft {
+      border: 1px solid rgba(255,255,255,.8);
+      color: #fff;
+      border-radius: 0;
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: .14em;
+      padding: 10px 19px;
+      text-transform: uppercase;
+      background: rgba(112,87,78,.2);
+    }
+
+    .btn-soft:hover {
+      background: #fff;
+      color: var(--brown);
+    }
+
+    .products {
+      position: absolute;
+      z-index: 2;
+      right: 4%;
+      top: 48%;
+      transform: translateY(-50%);
+      display: flex;
+      gap: 18px;
+      align-items: flex-end;
+    }
+
+    .bottle {
+      width: 64px;
+      height: 162px;
+      position: relative;
+      filter: drop-shadow(0 9px 9px rgba(55,39,34,.22));
+    }
+
+    .bottle .cap {
+      width: 30px;
+      height: 40px;
+      margin: 0 auto -2px;
+      border-radius: 8px 8px 4px 4px;
+      background: linear-gradient(90deg, #563d34, #8b6556, #4d372f);
+    }
+
+    .bottle .dropper {
+      width: 7px;
+      height: 18px;
+      margin: -4px auto 0;
+      border-radius: 4px 4px 1px 1px;
+      background: #3e2e28;
+    }
+
+    .bottle .body {
+      height: 113px;
+      border-radius: 7px 7px 10px 10px;
+      background: linear-gradient(90deg, #5c3129, #9a594c 45%, #63372f);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bottle .label {
+      position: absolute;
+      left: 6px;
+      right: 6px;
+      top: 39px;
+      height: 52px;
+      background: #eee8df;
+      color: #8d5c5b;
+      text-align: center;
+      font: 7px/1.25 Arial, sans-serif;
+      letter-spacing: .08em;
+      padding-top: 10px;
+    }
+
+    .bottle .label strong {
+      display: block;
+      font-family: Georgia, serif;
+      font-size: 9px;
+      font-weight: 400;
+      margin-bottom: 3px;
+    }
+
+    .formula {
+      background: var(--warm-white);
+      padding: 67px 0 78px;
+    }
+
+    .section-title {
+      color: var(--rose-dark);
+      font-size: 34px;
+      font-weight: 400;
+      text-align: center;
+      margin: 0 0 38px;
+    }
+
+    .article-card {
+      border: 0;
+      background: transparent;
+    }
+
+    .article-image {
+      height: 195px;
+      width: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .article-meta {
+      color: #ae817e;
+      font: 9px/1.4 Arial, sans-serif;
+      letter-spacing: .06em;
+      margin: 16px 0 8px;
+    }
+
+    .article-title {
+      color: var(--rose-dark);
+      font-size: 17px;
+      line-height: 1.35;
+      font-weight: 400;
+      margin: 0 0 16px;
+    }
+
+    .read-more {
+      display: inline-block;
+      border: 1px solid #d7b7b3;
+      color: var(--rose-dark);
+      font: 9px Arial, sans-serif;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 9px 15px;
+    }
+
+    .read-more:hover {
+      background: var(--rose-dark);
+      color: white;
+    }
+
+    .newsletter {
+      background: var(--cream);
+      padding: 54px 20px;
+      text-align: center;
+    }
+
+    .newsletter h2 {
+      color: var(--rose-dark);
+      font-size: 29px;
+      font-weight: 400;
+    }
+
+    .newsletter p {
+      font: 12px/1.7 Arial, sans-serif;
+      color: #806d64;
+      max-width: 450px;
+      margin: 10px auto 20px;
+    }
+
+    .newsletter .form-control {
+      border-radius: 0;
+      border-color: var(--line);
+      box-shadow: none;
+      font: 12px Arial, sans-serif;
+      padding: 12px 14px;
+    }
+
+    .newsletter .btn {
+      border-radius: 0;
+      background: var(--rose-dark);
+      border-color: var(--rose-dark);
+      font: 10px Arial, sans-serif;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding-inline: 24px;
+    }
+
+    footer {
+      background: #6e574f;
+      color: #f9f1e9;
+      padding: 24px 0;
+      font: 10px Arial, sans-serif;
+      letter-spacing: .08em;
+    }
+
+    @media (max-width: 991px) {
+      .hero { min-height: 520px; }
+      .hero-photo { inset: 0; opacity: .8; }
+      .hero-right { inset: 0; background: rgba(107,90,82,.35); }
+      .products { right: 5%; top: auto; bottom: 28px; transform: none; }
+      .hero-content { min-height: 520px; }
+    }
+
+    @media (max-width: 575px) {
+      .brand { font-size: 20px; }
+      .hero { min-height: 570px; }
+      .hero-content { min-height: 570px; align-items: flex-start; padding-top: 90px; }
+      .products { right: 50%; transform: translateX(50%); bottom: 25px; gap: 9px; }
+      .bottle { transform: scale(.78); transform-origin: bottom; margin: 0 -7px; }
+      .section-title { font-size: 28px; }
+      .article-image { height: 230px; }
+    }
+  </style>
+</head>
+
+<body>
+ 
+
+  <main>
+    <section class="hero">
+      <div class="hero-photo"></div>
+      <div class="hero-right"></div>
+
+      <div class="hero-content">
+        <div class="hero-copy">
+          <h1>Pick your<br>favorite combos</h1>
+          <p>UP TO 35% OFF WHEN YOU CHOOSE TWO<br>OR MORE FORMULAS</p>
+          <a href="#" class="btn btn-soft">Shop now</a>
+        </div>
+      </div>
+
+      <!-- Decorative product bottles -->
+      <div class="products" aria-hidden="true">
+        <div class="bottle">
+          <div class="cap"></div><div class="dropper"></div>
+          <div class="body"><div class="label"><strong>FORMULA</strong>FACE OIL<br>30 ML</div></div>
+        </div>
+        <div class="bottle">
+          <div class="cap"></div><div class="dropper"></div>
+          <div class="body"><div class="label"><strong>FORMULA</strong>GLOW SERUM<br>30 ML</div></div>
+        </div>
+        <div class="bottle">
+          <div class="cap"></div><div class="dropper"></div>
+          <div class="body"><div class="label"><strong>FORMULA</strong>REPAIR OIL<br>30 ML</div></div>
         </div>
       </div>
     </section>
 
+    <section class="formula">
+      <div class="container">
+        <h2 class="section-title">The Skincare Formula blog</h2>
 
-<!DOCTYPE html>
-<html lang="fa">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <div class="row g-5">
+          <article class="col-lg-6 article-card">
+            <div class="row g-4 align-items-center">
+              <div class="col-6">
+                <img class="article-image"
+                     src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=800&q=85"
+                     alt="Skincare routine">
+              </div>
+              <div class="col-6">
+                <div class="article-meta">OCTOBER 20, 2023</div>
+                <h3 class="article-title">The time ingredient skincare rituals</h3>
+                <a class="read-more" href="#">Read more</a>
+              </div>
+            </div>
+          </article>
 
-  <title>Skincare Formula</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-  <!-- HERO -->
-  <section class="hero">
-
-    <div class="hero-image">
-      <img src="images/hero.jpg" alt="Skincare">
-    </div>
-
-    <div class="hero-content">
-      <h1>Pick your favorite combos</h1>
-
-      <p>
-        Up to 35% off new launches<br>
-        above $120
-      </p>
-
-      <a href="#" class="shop-btn">Shop now</a>
-    </div>
-
-    <div class="products">
-
-      <div class="product">
-        <img src="images/product1.png" alt="Skincare product">
+          <article class="col-lg-6 article-card">
+            <div class="row g-4 align-items-center">
+              <div class="col-6">
+                <img class="article-image"
+                     src="https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?auto=format&fit=crop&w=800&q=85"
+                     alt="Skincare products">
+              </div>
+              <div class="col-6">
+                <div class="article-meta">OCTOBER 19, 2023</div>
+                <h3 class="article-title">The power of natural skincare rituals</h3>
+                <a class="read-more" href="#">Read more</a>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
+    </section>
 
-      <div class="product">
-        <img src="images/product2.png" alt="Skincare product">
-      </div>
-
-      <div class="product">
-        <img src="images/product3.png" alt="Skincare product">
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- sec1 -->
-  <section class="blog">
-
-    <h2>The Skincare Formula blog</h2>
-
-    <div class="blog-grid">
-
-      <!-- BLOG ITEM -->
-      <article class="blog-card">
-
-        <div class="blog-image">
-          <img src="images/blog1.jpg" alt="Skincare routine">
+    <section class="newsletter">
+      <h2>Care for your skin, naturally.</h2>
+      <p>Join our journal for simple skincare rituals, ingredient stories and new formula launches.</p>
+      <form class="row g-2 justify-content-center mx-auto" style="max-width: 560px;">
+        <div class="col-sm-8">
+          <input type="email" class="form-control" placeholder="Your email address">
         </div>
-
-        <div class="blog-info">
-
-          <span class="date">October 20, 2023</span>
-
-          <h3>
-            The time investment skincare
-            routine
-          </h3>
-
-          <a href="#" class="read-more">
-            Read more
-          </a>
-
+        <div class="col-sm-auto">
+          <button class="btn btn-primary w-100" type="submit">Subscribe</button>
         </div>
+      </form>
+    </section>
+  </main>
 
-      </article>
-
-
-      <!-- BLOG ITEM -->
-      <article class="blog-card">
-
-        <div class="blog-image">
-          <img src="images/blog2.jpg" alt="Skincare products">
-        </div>
-
-        <div class="blog-info">
-
-          <span class="date">October 19, 2023</span>
-
-          <h3>
-            The pros and cons of elective
-            skincare
-          </h3>
-
-          <a href="#" class="read-more">
-            Read more
-          </a>
-
-        </div>
-
-      </article>
-
-    </div>
-
-  </section>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
-  </body>
 </html>
