@@ -1,0 +1,93 @@
+:root {
+  --primary: #c33d46;
+  --cream: #fff8ee;
+  --accent: #c33e3f;
+}
+
+/* navbar start */
+.beautiva-navbar {
+  background-color: var(--cream);
+  padding: 18px 0;
+}
+
+.beautiva-brand {
+  color: var(--primary);
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+.beautiva-brand i {
+  margin-right: 6px;
+}
+
+.beautiva-navbar .nav-link {
+  color: #333;
+  font-weight: 500;
+  margin: 0 12px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.beautiva-navbar .nav-link:hover,
+.beautiva-navbar .nav-link.active {
+  color: var(--primary);
+}
+
+.beautiva-navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary);
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+.beautiva-navbar .nav-link:hover::after,
+.beautiva-navbar .nav-link.active::after {
+  width: 60%;
+}
+
+.nav-icon {
+  color: var(--primary);
+  font-size: 1.3rem;
+  text-decoration: none;
+  margin-left: 15px;
+  transition: 0.3s ease;
+}
+
+.nav-icon:hover {
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.shop-btn {
+  background-color: var(--primary);
+  color: white !important;
+  padding: 9px 20px !important;
+  border-radius: 25px;
+  margin-left: 15px;
+}
+
+.shop-btn:hover {
+  background-color: var(--accent);
+}
+
+.shop-btn::after {
+  display: none;
+}
+
+.navbar-toggler {
+  border: none;
+  color: var(--primary);
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
+/* navbar end */
